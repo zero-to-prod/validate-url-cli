@@ -15,7 +15,7 @@ use Zerotoprod\ValidateUrl\ValidateUrl;
 )]
 class ValidateUrlCommand extends Command
 {
-    public const signature = 'ValidateUrlCli:validate';
+    public const signature = 'validate-url-cli:validate';
     public const url = 'url';
 
     protected function execute(InputInterface $input, OutputInterface $output): int
