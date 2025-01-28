@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class SrcCommand extends Command
 {
-    public const signature = 'ValidateUrlCli:src';
+    public const signature = 'validate-url-cli:src';
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
