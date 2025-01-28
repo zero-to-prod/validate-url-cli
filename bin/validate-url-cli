@@ -2,12 +2,12 @@
 <?php
 
 use Symfony\Component\Console\Application;
-use Zerotoprod\:namespace\:namespace;
+use Zerotoprod\ValidateUrlCli\ValidateUrlCli;
 
 require getcwd().'/vendor/autoload.php';
 
 $Application = (new Application());
 
-:namespace::register($Application);
+ValidateUrlCli::register($Application);
 
 $Application->run();
