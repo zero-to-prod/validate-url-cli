@@ -11,7 +11,7 @@ use Zerotoprod\ValidateUrl\ValidateUrl;
 
 #[AsCommand(
     name: ValidateUrlCommand::signature,
-    description: 'Validates a url. Returns `true` if the url is valid, `false` otherwise.'
+    description: 'Validates a url. Returns the url when valid, null otherwise.'
 )]
 class ValidateUrlCommand extends Command
 {
@@ -20,10 +20,12 @@ class ValidateUrlCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $url = ValidateUrl::isUrl($input->getArgument(self::url));
+
         $output->writeln(
-            ValidateUrl::isUrl($input->getArgument(self::url))
-                ? 'true'
-                : 'false'
+            ValidateUrl::isUrl($url)
+                ? $url
+                : ''
         );
 
         return Command::SUCCESS;
