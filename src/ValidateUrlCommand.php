@@ -20,7 +20,7 @@ class ValidateUrlCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $url = ValidateUrl::isUrl($input->getArgument(self::url));
+        $url = $input->getArgument(self::url);
 
         $output->writeln(
             ValidateUrl::isUrl($url)
