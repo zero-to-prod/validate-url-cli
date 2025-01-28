@@ -2,13 +2,11 @@
 
 namespace Tests\Unit;
 
-use;
 use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\TestCase;
-
-:namespace\SrcCommand;
+use Zerotoprod\ValidateUrlCli\SrcCommand;
 
 class SrcCommandTest extends TestCase
 {
