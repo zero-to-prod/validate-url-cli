@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\TestCase;
-use Zerotoprod\ValidateUrlCli\ValidateUrlCommand;
+use Zerotoprod\ValidateUrlCli\ValidateUrl\ValidateUrlCommand;
 
 class ValidateUrlCommandTest extends TestCase
 {
