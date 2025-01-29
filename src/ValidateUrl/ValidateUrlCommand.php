@@ -1,6 +1,6 @@
 <?php
 
-namespace Zerotoprod\ValidateUrlCli;
+namespace Zerotoprod\ValidateUrlCli\ValidateUrl;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -20,11 +20,11 @@ class ValidateUrlCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $url = $input->getArgument(self::url);
+        $ValidateUrlArguments = ValidateUrlArguments::from($input->getArguments());
 
         $output->writeln(
-            ValidateUrl::isUrl($url)
-                ? $url
+            ValidateUrl::isUrl($ValidateUrlArguments->url)
+                ? $ValidateUrlArguments->url
                 : ''
         );
 
@@ -33,6 +33,6 @@ class ValidateUrlCommand extends Command
 
     public function configure(): void
     {
-        $this->addArgument(self::url, InputArgument::REQUIRED, 'The url to validate');
+        $this->addArgument(ValidateUrlArguments::url, InputArgument::REQUIRED, 'The url to validate');
     }
 }
