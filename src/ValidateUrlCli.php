@@ -3,6 +3,8 @@
 namespace Zerotoprod\ValidateUrlCli;
 
 use Symfony\Component\Console\Application;
+use Zerotoprod\ValidateUrlCli\Src\SrcCommand;
+use Zerotoprod\ValidateUrlCli\ValidateUrl\ValidateUrlCommand;
 
 class ValidateUrlCli
 {
