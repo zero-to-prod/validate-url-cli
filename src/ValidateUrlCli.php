@@ -3,6 +3,7 @@
 namespace Zerotoprod\ValidateUrlCli;
 
 use Symfony\Component\Console\Application;
+use Zerotoprod\ValidateUrlCli\ShowRegex\ShowRegexCommand;
 use Zerotoprod\ValidateUrlCli\Src\SrcCommand;
 use Zerotoprod\ValidateUrlCli\ValidateUrl\ValidateUrlCommand;
 
@@ -12,5 +13,6 @@ class ValidateUrlCli
     {
         $Application->add(new SrcCommand());
         $Application->add(new ValidateUrlCommand());
+        $Application->add(new ShowRegexCommand());
     }
 }
