@@ -18,7 +18,13 @@
 - [Introduction](#introduction)
 - [Requirements](#requirements)
 - [Installation](#installation)
+- [Documentation Publishing](#documentation-publishing)
+    - [Automatic Documentation Publishing](#automatic-documentation-publishing)
 - [Usage](#usage)
+  - [Available Commands](#available-commands)
+    - [`validate-url-cli:src`](#validate-url-clisrc)
+    - [`validate-url-cli:validate`](#validate-url-clivalidate)
+    - [`validate-url-cli:show-regex`](#validate-url-clishow-regex)
 - [Docker Image](#docker-image)
 - [Local Development](./LOCAL_DEVELOPMENT.md)
 - [Image Development](./IMAGE_DEVELOPMENT.md)
@@ -40,7 +46,40 @@ Install `Zerotoprod\ValidateUrlCli` via [Composer](https://getcomposer.org/):
 composer require zero-to-prod/validate-url-cli
 ```
 
-This will add the package to your project’s dependencies and create an autoloader entry for it.
+This will add the package to your project's dependencies and create an autoloader entry for it.
+
+## Documentation Publishing
+
+You can publish this README to your local documentation directory.
+
+This can be useful for providing documentation for AI agents.
+
+This can be done using the included script:
+
+```bash
+# Publish to default location (./docs/zero-to-prod/validate-url)
+vendor/bin/zero-to-prod-validate-url
+
+# Publish to custom directory
+vendor/bin/zero-to-prod-validate-url /path/to/your/docs
+```
+
+### Automatic Documentation Publishing
+
+You can automatically publish documentation by adding the following to your `composer.json`:
+
+```json
+{
+    "scripts": {
+        "post-install-cmd": [
+            "zero-to-prod-validate-url"
+        ],
+        "post-update-cmd": [
+            "zero-to-prod-validate-url"
+        ]
+    }
+}
+```
 
 ## Usage
 
@@ -48,6 +87,82 @@ Run this command to see the available commands:
 
 ```shell
 vendor/bin/validate-url-cli list
+```
+
+### Available Commands
+
+#### `validate-url-cli:src`
+
+Display the project's GitHub repository URL.
+
+**Usage:**
+```shell
+vendor/bin/validate-url-cli validate-url-cli:src
+```
+
+**Arguments:** None
+
+**Example:**
+```shell
+vendor/bin/validate-url-cli validate-url-cli:src
+```
+
+**Output:**
+```
+https://github.com/zero-to-prod/validate-url-cli
+```
+
+#### `validate-url-cli:validate`
+
+Validates a URL and returns the URL if valid, empty output otherwise.
+
+**Usage:**
+```shell
+vendor/bin/validate-url-cli validate-url-cli:validate <url>
+```
+
+**Arguments:**
+- `url` (required): The URL to validate
+
+**Example:**
+```shell
+vendor/bin/validate-url-cli validate-url-cli:validate "https://example.com"
+```
+
+**Output (valid URL):**
+```
+https://example.com
+```
+
+**Example with invalid URL:**
+```shell
+vendor/bin/validate-url-cli validate-url-cli:validate "not-a-url"
+```
+
+**Output (invalid URL):**
+```
+
+```
+
+#### `validate-url-cli:show-regex`
+
+Display the regular expression pattern used to validate URLs.
+
+**Usage:**
+```shell
+vendor/bin/validate-url-cli validate-url-cli:show-regex
+```
+
+**Arguments:** None
+
+**Example:**
+```shell
+vendor/bin/validate-url-cli validate-url-cli:show-regex
+```
+
+**Output:**
+```
+/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
 ```
 
 ## Docker Image
