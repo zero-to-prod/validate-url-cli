@@ -45,7 +45,8 @@
     }
   },
   "bin": [
-    "bin/validate-url-cli"
+    "bin/validate-url-cli",
+    "bin/zero-to-prod-validate-url"
   ],
   "require-dev": {
     "phpunit/phpunit": "<12.0"
